@@ -1,0 +1,37 @@
+1:package io;
+2:
+3:import java.io.BufferedReader;
+4:import java.io.File;
+5:import java.io.FileReader;
+6:import java.io.IOException;
+7:
+8:/**
+9: * Created by xjshi on 02/03/2017.
+10: * 18.6.1 缓冲输入文件
+11: */
+12:
+13:/**
+14: * 打开一个文件用于字符输入
+15: */
+16:public class BufferedInputFile {
+17:    public static String read(String filename) throws IOException {
+18:        //Reading input by lines
+19:        BufferedReader in = new BufferedReader(new FileReader(filename));
+20:
+21:        String s;
+22:        StringBuilder sb = new StringBuilder();
+23:        while ((s = in.readLine()) != null)
+24:            sb.append(s + "\n");
+25:
+26:        in.close();
+27:        return sb.toString();
+28:    }
+29:
+30:    public static void main(String[] args) throws IOException {
+31:        File f = new File(".");
+32:        System.out.println(f.getAbsolutePath());
+33:        System.out.println("-------------");
+34:        System.out.print(read("/Users/xjshi/Java-workspace/ThinkingInJava/src/io/BufferedInputFile.java"));
+35:
+36:    }
+37:}
