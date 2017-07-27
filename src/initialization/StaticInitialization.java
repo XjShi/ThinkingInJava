@@ -16,7 +16,16 @@ class Bowl {
 }
 
 class Table {
+    static void test() {
+        System.out.println("test");
+    }
+    static {
+        System.out.println("before bowl1");
+    }
     static Bowl bowl1 = new Bowl(1);
+    static {
+        System.out.println("after bowl1");
+    }
 
     Table() {
         print("Table()");
@@ -27,7 +36,13 @@ class Table {
         print("f2(" + marker + ")");
     }
 
+    static {
+        System.out.println("before bowl2");
+    }
     static Bowl bowl2 = new Bowl(2);
+    static {
+        System.out.println("after bowl2");
+    }
 }
 
 class Cupboard {
@@ -48,15 +63,15 @@ class Cupboard {
 
 public class StaticInitialization {
     public static void main(String[] args) {
-        print("----------------------");
-        new Cupboard();
-        print("======================");
-        new Cupboard();
-        table.f2(1);
-        cupboard.f3(1);
+//        print("----------------------");
+//        new Cupboard();
+//        print("======================");
+//        new Cupboard();
+//        table.f2(1);
+//        cupboard.f3(1);
+        Table.test();
     }
 
-    static Table table = new Table();
-    static Cupboard cupboard = new Cupboard();
-    Integer[] arr =  new Integer[]{1, 3, 5};
+//    static Table table = new Table();
+//    static Cupboard cupboard = new Cupboard();
 }
