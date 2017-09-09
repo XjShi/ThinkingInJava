@@ -37,7 +37,7 @@ class Blocked3 implements Runnable {
                     NeedsCleanup n2 = new NeedsCleanup(2);
                     try {
                         print("Calculating");
-                        for (int i = 0; i < 2500000; i++) {
+                        for (int i = 0; i < 250000; i++) {
                             d = d + (Math.PI + Math.E) / d;
                         }
                         print("Finish time-consuming operation");
@@ -67,3 +67,27 @@ public class InterruptingIdiom {
         t.interrupt();
     }
 }
+
+/*
+NeedsCleanup 1
+Sleeping
+NeedsCleanup 2
+Calculating
+Finish time-consuming operation
+Cleaning up 2
+Cleaning up 1
+Exiting via while() test
+ */
+/*
+NeedsCleanup 1
+Sleeping
+NeedsCleanup 2
+Calculating
+Finish time-consuming operation
+Cleaning up 2
+Cleaning up 1
+NeedsCleanup 1
+Sleeping
+Cleaning up 1
+Exiting via InterruptedException
+ */

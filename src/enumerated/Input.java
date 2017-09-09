@@ -34,6 +34,7 @@ public enum Input {
     }
 
     static Random rand = new Random(47);
+
     public static Input randomSelect() {
         return values()[rand.nextInt(values().length - 1)];
     }
